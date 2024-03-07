@@ -1,3 +1,8 @@
+## Sonic Frontiers Physics Customized V1.2
+- Added Config For Up Hill Speed
+- Added Config For Down Hill Speed
+- Added Config For Hill Acceleration
+
 ## Sonic Frontiers Physics Customized V1.1
 - Added Config For Max Walk Speed
 - Added Config For Min Walk Speed
