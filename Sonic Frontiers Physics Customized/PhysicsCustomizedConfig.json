@@ -1,0 +1,249 @@
+{
+  "Groups": [
+    {
+      "Name": "Common",
+      "DisplayName": "Common",
+      "Elements": [
+        {
+          "Name": "maxrunspeed",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Maximum Running Speed",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 70
+        },
+        {
+          "Name": "magnetstrength",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Magnet Strength",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 1.6
+        }
+      ]
+    },
+    {
+      "Name": "InitialSpeed",
+      "DisplayName": "Initial Speed Related",
+      "Elements": [
+        {
+          "Name": "walkspeedinitial",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Walk Speed",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 1
+        },
+        {
+          "Name": "runspeedinitial",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Run Speed",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 11
+        },
+        {
+          "Name": "boostspeedinitial",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Boost Speed",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 20
+        },
+        {
+          "Name": "boost2speedinitial",
+          "Description": [
+            "0 = Disabled. IDK Put this one higher than the other boost"
+          ],
+          "DisplayName": "Boost 2 Speed",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 30
+        },
+        {
+          "Name": "powerboostspeedinitial",
+          "Description": [
+            "0 = Disabled. IDK Put this one lower than powerboost 2 and boost 2 or do whatever floats your boat"
+          ],
+          "DisplayName": "Power Boost Speed",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 20
+        },
+        {
+          "Name": "powerboost2speedinitial",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Power Boost 2 Speed",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 60
+        }
+      ]
+    },
+    {
+      "Name": "MaxSpeed",
+      "DisplayName": "Max Speed Related",
+      "Elements": [
+        {
+          "Name": "walkspeedmax",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Walk Speed",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 15
+        },
+        {
+          "Name": "runspeedmax",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Run Speed",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 15
+        },
+        {
+          "Name": "boostspeedmax",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Boost Speed",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 20
+        },
+        {
+          "Name": "boost2speedmax",
+          "Description": [
+            "0 = Disabled. IDK Put this one higher than the other boost"
+          ],
+          "DisplayName": "Boost 2 Speed",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 30
+        },
+        {
+          "Name": "powerboostspeedmax",
+          "Description": [
+            "0 = Disabled. IDK Put this one lower than powerboost 2 and boost 2 or do whatever floats your boat"
+          ],
+          "DisplayName": "Power Boost Speed",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 20
+        },
+        {
+          "Name": "powerboost2speedmax",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Power Boost 2 Speed",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 60
+        }
+      ]
+    },
+    {
+      "Name": "MinSpeed",
+      "DisplayName": "Min Speed Related",
+      "Elements": [
+        {
+          "Name": "walkspeedmin",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Walk Speed",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 0.5
+        },
+        {
+          "Name": "runspeedmin",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Run Speed",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 0.5
+        },
+        {
+          "Name": "boostspeedmin",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Boost Speed",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 20
+        },
+        {
+          "Name": "boost2speedmin",
+          "Description": [
+            "0 = Disabled. IDK Put this one higher than the other boost"
+          ],
+          "DisplayName": "Boost 2 Speed",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 20
+        },
+        {
+          "Name": "powerboostspeedmin",
+          "Description": [
+            "0 = Disabled. IDK Put this one lower than powerboost 2 and boost 2 or do whatever floats your boat"
+          ],
+          "DisplayName": "Power Boost Speed",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 20
+        },
+        {
+          "Name": "powerboost2speedmin",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Power Boost 2 Speed",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 20
+        }
+      ]
+    }
+  ],
+  "IniFile": "mod.ini"
+}
