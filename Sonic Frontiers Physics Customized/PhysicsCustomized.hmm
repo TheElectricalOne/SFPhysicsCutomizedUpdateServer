@@ -233,53 +233,6 @@ Code "Physics Customized Initial Powerboost 2"
 }
 
 
-Code "Physics Customized Max Running Speed"
-//
-    #include "Reflection" noemit
-
-    #lib "SonicParameters"
-    #lib "Sonic"
-    #lib "Player"
-    #lib "Reflection"
-    #lib "HMM"
-    #lib "INI"
-
-    static bool IsConfigInitialised = false;
-    static float MaxRunSpeed = 0;
-//
-{
-    if (!IsConfigInitialised)
-    {
-        var mods = HMM.GetModByID("2938D1B0");
-        
-        if (mods != null)
-        {
-            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
-            var ini = INI.Read(modConfigIniPath);
-
-            MaxRunSpeed = INI.Parse(ini["Common"]["maxrunspeed"], MaxRunSpeed);
-        }
-        else
-        {
-            Console.WriteLine($"[Physics Customized] Failed to locate mod directory.");
-            return;
-        }
-
-        IsConfigInitialised = true;
-    }
-
-    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
-    
-    if (SonicParametersInfo.pData == null)
-        return;
-
-    if (MaxRunSpeed >= 0)
-    {
-        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.maxSpeedOver, MaxRunSpeed);
-    }
-}
-
-
 Code "Physics Customized Magnet Strength"
 //
     #include "Reflection" noemit
@@ -890,7 +843,7 @@ Code "Physics Customized Min Powerboost2"
 }
 
 
-Code "Physics Customized Up Hill Speed"
+Code "Physics Customized Max Speed Limit"
 //
     #include "Reflection" noemit
 
@@ -902,7 +855,9 @@ Code "Physics Customized Up Hill Speed"
     #lib "INI"
 
     static bool IsConfigInitialised = false;
-    static float UpHillSpeed = 0;
+    static float MaxSpeedLimit = 0;
+    static float MinSpeedLimit = MaxSpeedLimit - 10
+    static float OverSpeedLimit = MinSpeedLimit - 5
 //
 {
     if (!IsConfigInitialised)
@@ -914,7 +869,7 @@ Code "Physics Customized Up Hill Speed"
             string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
             var ini = INI.Read(modConfigIniPath);
 
-            UpHillSpeed = INI.Parse(ini["Momentum"]["upspeed"], UpHillSpeed);
+            MaxSpeedLimit = INI.Parse(ini["Momentum"]["maxspeedlimit"], MaxSpeedLimit);
         }
         else
         {
@@ -930,13 +885,16 @@ Code "Physics Customized Up Hill Speed"
     if (SonicParametersInfo.pData == null)
         return;
 
+    if (MaxSpeedLimit >= 0)
     {
-        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.maxGravityDecele, UpHillSpeed);
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.maxSpeedOver, OverSpeedLimit);
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.opitonMaxSpeedLimitMax, MaxSpeedLimit);
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.opitonMaxSpeedLimitMin, MinSpeedLimit);
     }
 }
 
 
-Code "Physics Customized Down Hill Speed"
+Code "Physics Customized Up Hill"
 //
     #include "Reflection" noemit
 
@@ -948,7 +906,7 @@ Code "Physics Customized Down Hill Speed"
     #lib "INI"
 
     static bool IsConfigInitialised = false;
-    static float DownHillSpeed = 0;
+    static float UpSpeed = 0;
 //
 {
     if (!IsConfigInitialised)
@@ -960,7 +918,7 @@ Code "Physics Customized Down Hill Speed"
             string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
             var ini = INI.Read(modConfigIniPath);
 
-            DownHillSpeed = INI.Parse(ini["Momentum"]["downspeed"], DownHillSpeed);
+            UpSpeed = INI.Parse(ini["Momentum"]["upspeed"], UpSpeed);
         }
         else
         {
@@ -976,13 +934,14 @@ Code "Physics Customized Down Hill Speed"
     if (SonicParametersInfo.pData == null)
         return;
 
+    if (UpSpeed >= 0)
     {
-        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.maxGravityAccele, DownHillSpeed);
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.maxGravityDecele, UpSpeed);
     }
 }
 
 
-Code "Physics Customized Hill Acceleration"
+Code "Physics Customized Down Hill"
 //
     #include "Reflection" noemit
 
@@ -994,7 +953,7 @@ Code "Physics Customized Hill Acceleration"
     #lib "INI"
 
     static bool IsConfigInitialised = false;
-    static float HillAccele = 0;
+    static float DownSpeed = 0;
 //
 {
     if (!IsConfigInitialised)
@@ -1006,7 +965,7 @@ Code "Physics Customized Hill Acceleration"
             string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
             var ini = INI.Read(modConfigIniPath);
 
-            HillAccele = INI.Parse(ini["Momentum"]["downspeed"], HillAccele);
+            DownSpeed = INI.Parse(ini["Momentum"]["downspeed"], DownSpeed);
         }
         else
         {
@@ -1022,7 +981,55 @@ Code "Physics Customized Hill Acceleration"
     if (SonicParametersInfo.pData == null)
         return;
 
+    if (DownSpeed >= 0)
     {
-        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.acceleSensitive, HillAccele);
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.maxGravityAccele, DownSpeed);
+    }
+}
+
+
+Code "Physics Customized Sensitivity Hill Speed"
+//
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "Sonic"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float HillSens = 0;
+//
+{
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            HillSens = INI.Parse(ini["Momentum"]["downspeed"], HillSens);
+        }
+        else
+        {
+            Console.WriteLine($"[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (HillSens >= 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.acceleSensitive, HillSens);
     }
 }

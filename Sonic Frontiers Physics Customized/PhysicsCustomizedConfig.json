@@ -5,17 +5,6 @@
       "DisplayName": "Common",
       "Elements": [
         {
-          "Name": "maxrunspeed",
-          "Description": [
-            "0 = Disabled."
-          ],
-          "DisplayName": "Maximum Running Speed",
-          "Type": "float",
-          "MinValue": 0,
-          "MaxValue": 1000,
-          "DefaultValue": 70
-        },
-        {
           "Name": "magnetstrength",
           "Description": [
             "0 = Disabled."
@@ -246,16 +235,27 @@
     },
     {
       "Name": "Momentum",
-      "DisplayName": "Momentum Stuff",
+      "DisplayName": "Momentum",
       "Elements": [
+        {
+          "Name": "maxspeedlimit",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Max Speed Limit",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 60
+        },
         {
           "Name": "upspeed",
           "Description": [
             "0 = Disabled."
           ],
-          "DisplayName": "Speed Up Hill",
+          "DisplayName": "Up Hill Speed",
           "Type": "float",
-          "MinValue": 0,
+          "MinValue": -1000,
           "MaxValue": 1000,
           "DefaultValue": 0
         },
@@ -264,20 +264,20 @@
           "Description": [
             "0 = Disabled."
           ],
-          "DisplayName": "Speed Down Hill",
+          "DisplayName": "Down Hill Speed",
           "Type": "float",
-          "MinValue": 0,
+          "MinValue": -1000,
           "MaxValue": 1000,
           "DefaultValue": 10
         },
         {
-          "Name": "hillaccel",
+          "Name": "AcceleSensitive",
           "Description": [
-            "0 = Disabled. For Some Reason Its -4 Experiment With It"
+            "0 = Disabled."
           ],
-          "DisplayName": "Hill Accel",
+          "DisplayName": "Hill Sensitivity",
           "Type": "float",
-          "MinValue": 0,
+          "MinValue": -1000,
           "MaxValue": 1000,
           "DefaultValue": -4
         }
