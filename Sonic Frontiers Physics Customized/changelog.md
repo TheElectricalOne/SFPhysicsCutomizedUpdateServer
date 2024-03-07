@@ -13,3 +13,4 @@
 - Added Config For Min Power Boost 2 Speed
 - Added Config For Maximum Running Speed In General
 - Added Config For Magnet Range
+- Added Update Server
