@@ -1,3 +1,6 @@
+## Sonic Frontiers Physics Customized V1.21
+- Fixed All New Momentum Configs As Broken Cause Like I'm Bad At Coding
+
 ## Sonic Frontiers Physics Customized V1.2
 - Added Config For Up Hill Speed
 - Added Config For Down Hill Speed
