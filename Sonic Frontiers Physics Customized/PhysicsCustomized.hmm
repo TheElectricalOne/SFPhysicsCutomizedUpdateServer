@@ -856,8 +856,8 @@ Code "Physics Customized Max Speed Limit"
 
     static bool IsConfigInitialised = false;
     static float MaxSpeedLimit = 0;
-    static float MinSpeedLimit = MaxSpeedLimit - 10
-    static float OverSpeedLimit = MinSpeedLimit - 5
+    static float MinSpeedLimit = MaxSpeedLimit - 10;
+    static float OverSpeedLimit = MinSpeedLimit - 5;
 //
 {
     if (!IsConfigInitialised)
