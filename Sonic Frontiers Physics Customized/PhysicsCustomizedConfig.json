@@ -243,6 +243,45 @@
           "DefaultValue": 20
         }
       ]
+    },
+    {
+      "Name": "Momentum",
+      "DisplayName": "Momentum Stuff",
+      "Elements": [
+        {
+          "Name": "upspeed",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Speed Up Hill",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 0
+        },
+        {
+          "Name": "downspeed",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Speed Down Hill",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 10
+        },
+        {
+          "Name": "hillaccel",
+          "Description": [
+            "0 = Disabled. For Some Reason Its -4 Experiment With It"
+          ],
+          "DisplayName": "Hill Accel",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": -4
+        }
+      ]
     }
   ],
   "IniFile": "mod.ini"
