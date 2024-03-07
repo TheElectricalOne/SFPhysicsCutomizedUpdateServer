@@ -1,3 +1,6 @@
+## Sonic Frontiers Physics Customized V1.22
+- Again It's Now Properly Fixed
+
 ## Sonic Frontiers Physics Customized V1.21
 - Fixed All New Momentum Configs As Broken Cause Like I'm Bad At Coding
 
