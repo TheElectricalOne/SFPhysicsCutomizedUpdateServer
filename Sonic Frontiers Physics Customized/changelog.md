@@ -1,3 +1,6 @@
+## Sonic Frontiers Physics Customized V1.3
+- I Have Properly Fixed It Now I've Tested It On My Computer And My Friend's So It Should Work
+
 ## Sonic Frontiers Physics Customized V1.22
 - Again It's Now Properly Fixed
 
