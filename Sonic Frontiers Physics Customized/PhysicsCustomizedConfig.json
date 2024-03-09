@@ -174,7 +174,7 @@
           "Type": "float",
           "MinValue": 0,
           "MaxValue": 1000,
-          "DefaultValue": 0.5
+          "DefaultValue": 1
         },
         {
           "Name": "runspeedmin",
@@ -185,7 +185,7 @@
           "Type": "float",
           "MinValue": 0,
           "MaxValue": 1000,
-          "DefaultValue": 0.5
+          "DefaultValue": 1
         },
         {
           "Name": "boostspeedmin",
@@ -253,9 +253,9 @@
           "Description": [
             "0 = Disabled."
           ],
-          "DisplayName": "Up Hill Speed",
+          "DisplayName": "Up Hill Speed Gain/Loss",
           "Type": "float",
-          "MinValue": -1000,
+          "MinValue": 0,
           "MaxValue": 1000,
           "DefaultValue": 0
         },
@@ -264,14 +264,14 @@
           "Description": [
             "0 = Disabled."
           ],
-          "DisplayName": "Down Hill Speed",
+          "DisplayName": "Down Hill Speed Gain/Loss",
           "Type": "float",
-          "MinValue": -1000,
+          "MinValue": 0,
           "MaxValue": 1000,
           "DefaultValue": 10
         },
         {
-          "Name": "AcceleSensitive",
+          "Name": "accelesensitive",
           "Description": [
             "0 = Disabled."
           ],
@@ -279,7 +279,7 @@
           "Type": "float",
           "MinValue": -1000,
           "MaxValue": 1000,
-          "DefaultValue": -4
+          "DefaultValue": 4
         }
       ]
     }

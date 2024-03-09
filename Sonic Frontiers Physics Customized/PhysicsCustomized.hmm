@@ -838,7 +838,7 @@ Code "Physics Customized Min Powerboost2"
 
     if (Powerboost2SpeedMin >= 0)
     {
-        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.boostLvMax.min, Powerboost2SpeedMin);
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.boostLvMax2.min, Powerboost2SpeedMin);
     }
 }
 
@@ -856,8 +856,6 @@ Code "Physics Customized Max Speed Limit"
 
     static bool IsConfigInitialised = false;
     static float MaxSpeedLimit = 0;
-    static float MinSpeedLimit = MaxSpeedLimit - 10;
-    static float OverSpeedLimit = MinSpeedLimit - 5;
 //
 {
     if (!IsConfigInitialised)
@@ -887,9 +885,9 @@ Code "Physics Customized Max Speed Limit"
 
     if (MaxSpeedLimit >= 0)
     {
-        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.maxSpeedOver, OverSpeedLimit);
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.maxSpeedOver, MaxSpeedLimit);
         RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.opitonMaxSpeedLimitMax, MaxSpeedLimit);
-        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.opitonMaxSpeedLimitMin, MinSpeedLimit);
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.opitonMaxSpeedLimitMin, MaxSpeedLimit);
     }
 }
 
@@ -934,7 +932,7 @@ Code "Physics Customized Up Hill"
     if (SonicParametersInfo.pData == null)
         return;
 
-    if (UpSpeed >= 0)
+    if (UpSpeed != 0)
     {
         RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.maxGravityDecele, UpSpeed);
     }
@@ -981,7 +979,7 @@ Code "Physics Customized Down Hill"
     if (SonicParametersInfo.pData == null)
         return;
 
-    if (DownSpeed >= 0)
+    if (DownSpeed != 0)
     {
         RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.maxGravityAccele, DownSpeed);
     }
@@ -1012,7 +1010,7 @@ Code "Physics Customized Sensitivity Hill Speed"
             string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
             var ini = INI.Read(modConfigIniPath);
 
-            HillSens = INI.Parse(ini["Momentum"]["downspeed"], HillSens);
+            HillSens = INI.Parse(ini["Momentum"]["accelesensitive"], HillSens);
         }
         else
         {
@@ -1028,7 +1026,7 @@ Code "Physics Customized Sensitivity Hill Speed"
     if (SonicParametersInfo.pData == null)
         return;
 
-    if (HillSens >= 0)
+    if (HillSens != 0)
     {
         RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.acceleSensitive, HillSens);
     }
