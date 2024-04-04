@@ -557,7 +557,7 @@ Code "Physics Customized Max Powerboost2"
 
     if (Powerboost2SpeedMax >= 0)
     {
-        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.boostLvMax.max, Powerboost2SpeedMax);
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.boostLvMax2.max, Powerboost2SpeedMax);
     }
 }
 
