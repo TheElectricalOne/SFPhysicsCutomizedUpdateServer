@@ -1,3 +1,6 @@
+## Sonic Frontiers Physics Customized V1.31
+- Fixed The Power Boost 2 Max Speed As It Was Changing Power Boost Max Speed (Forgot To Add The 2)
+
 ## Sonic Frontiers Physics Customized V1.3
 - I Have Properly Fixed It Now I've Tested It On My Computer And My Friend's So It Should Work
 
