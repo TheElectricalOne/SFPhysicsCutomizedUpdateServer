@@ -1,3 +1,26 @@
+## Sonic Frontiers Physics Customized V1.4
+- Added A Description To The mod.ini
+- Changed All The Configuration Group Names
+- Common (All Characters)
+- Sonic's Speed Parameters
+- Sonic's Momentum Parameters
+- Sonic's Other Boost Parameters
+- Sonic's Combat Parameters
+- Added Spin Dash Initial Speed
+- Added Spin Dash Max Speed
+- Added Boost Consumption Rate
+- Added Boost Consumption Rate
+- Added Boost Recovery Rate
+- Added Boost Recovery By Ring
+- Added Boost Recovery By Attack
+- Added Boost End Speed
+- Added Offensive Punch Minimum Damage
+- Added Offensive Punch Max Damage
+- Added Defensive Punch Minimum Damage
+- Added Defensive Punch Max Damage
+- Added Wild Rush Charge Time
+- Added Wild Rush Speed
+
 ## Sonic Frontiers Physics Customized V1.31
 - Fixed The Power Boost 2 Max Speed As It Was Changing Power Boost Max Speed (Forgot To Add The 2)
 
