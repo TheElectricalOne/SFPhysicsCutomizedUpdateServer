@@ -14,6 +14,61 @@
           "MinValue": 0,
           "MaxValue": 1000,
           "DefaultValue": 1.6
+        },
+        {
+          "Name": "divingspeedvert",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Diving Vertical Speed",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 10
+        },
+        {
+          "Name": "divingspeedhorizon",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Diving Horizontal Speed",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 10
+        },
+        {
+          "Name": "divingspeedmaxvert",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Max Diving Vertical Speed",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 40
+        },
+        {
+          "Name": "divingspeedmaxhorizon",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Max Diving Horizontal Speed",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 5
+        },
+        {
+          "Name": "parrytime",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Parry Timing",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 15
         }
       ]
     },
@@ -259,26 +314,26 @@
       "DisplayName": "Sonic's Momentum Parameters",
       "Elements": [
         {
-          "Name": "upspeed",
-          "Description": [
-            "0 = Disabled."
-          ],
-          "DisplayName": "Up Hill Speed Gain/Loss",
-          "Type": "float",
-          "MinValue": -1000,
-          "MaxValue": 1000,
-          "DefaultValue": 0
-        },
-        {
           "Name": "downspeed",
           "Description": [
             "0 = Disabled."
           ],
-          "DisplayName": "Down Hill Speed Gain/Loss",
+          "DisplayName": "Max Gravity Acceleration",
           "Type": "float",
           "MinValue": -1000,
           "MaxValue": 1000,
           "DefaultValue": 10
+        },
+        {
+          "Name": "upspeed",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Max Gravity Deceleration",
+          "Type": "float",
+          "MinValue": -1000,
+          "MaxValue": 1000,
+          "DefaultValue": 0
         },
         {
           "Name": "accelesensitive",
@@ -289,7 +344,145 @@
           "Type": "float",
           "MinValue": -4,
           "MaxValue": 4,
-          "DefaultValue": 4
+          "DefaultValue": -4
+        }
+      ]
+    },
+    {
+      "Name": "SonicAccelParams",
+      "DisplayName": "Sonic's Acceleration And Deceleration Parameters",
+      "Elements": [
+        {
+          "Name": "accelforce",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Acceleration Force",
+          "Type": "float",
+          "MinValue": -1000,
+          "MaxValue": 1000,
+          "DefaultValue": 5
+        },
+        {
+          "Name": "accelforce2",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Acceleration Force2",
+          "Type": "float",
+          "MinValue": -1000,
+          "MaxValue": 1000,
+          "DefaultValue": 10
+        },
+        {
+          "Name": "acceldamp",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Acceleration Damper Range",
+          "Type": "float",
+          "MinValue": -1000,
+          "MaxValue": 1000,
+          "DefaultValue": 10
+        },
+        {
+          "Name": "acceljerkmin",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Acceleration Jerk Minimum",
+          "Type": "float",
+          "MinValue": -1000,
+          "MaxValue": 1000,
+          "DefaultValue": 40
+        },
+        {
+          "Name": "acceljerkmax",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Acceleration Jerk Max",
+          "Type": "float",
+          "MinValue": -1000,
+          "MaxValue": 1000,
+          "DefaultValue": 80
+        },
+        {
+          "Name": "decelforce",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Deceleration Force",
+          "Type": "float",
+          "MinValue": -1000,
+          "MaxValue": 1000,
+          "DefaultValue": 5
+        },
+        {
+          "Name": "decelforce2",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Deceleration Force2",
+          "Type": "float",
+          "MinValue": -1000,
+          "MaxValue": 1000,
+          "DefaultValue": 10
+        },
+        {
+          "Name": "deceldamp",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Deceleration Damper Range",
+          "Type": "float",
+          "MinValue": -1000,
+          "MaxValue": 1000,
+          "DefaultValue": 10
+        },
+        {
+          "Name": "deceljerkmin",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Deceleration Jerk Minimum",
+          "Type": "float",
+          "MinValue": -1000,
+          "MaxValue": 1000,
+          "DefaultValue": 40
+        },
+        {
+          "Name": "deceljerkmax",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Deceleration Jerk Max",
+          "Type": "float",
+          "MinValue": -1000,
+          "MaxValue": 1000,
+          "DefaultValue": 80
+        },
+        {
+          "Name": "autoaccel",
+          "Description": [
+            "0 = Disabled. (i think)."
+          ],
+          "DisplayName": "Auto Run Acceleration",
+          "Type": "float",
+          "MinValue": -1000,
+          "MaxValue": 1000,
+          "DefaultValue": 54
+        },
+        {
+          "Name": "autodecel",
+          "Description": [
+            "0 = Disabled. (i think)."
+          ],
+          "DisplayName": "Auto Run Deceleration",
+          "Type": "float",
+          "MinValue": -1000,
+          "MaxValue": 1000,
+          "DefaultValue": 16.65
         }
       ]
     },
@@ -434,9 +627,161 @@
           "MinValue": 0,
           "MaxValue": 1000,
           "DefaultValue": 0.1977
+        },
+        {
+          "Name": "wildrushdamage",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Wild Rush Damage",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 2.5
+        }
+      ]
+    },
+    {
+      "Name": "SuperSonicAndSuperSonic2Params",
+      "DisplayName": "Super Sonic And Super Sonic 2's Parameters",
+      "Elements": [
+        {
+          "Name": "flightspeed",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Flight Speed",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 85
+        },
+        {
+          "Name": "flightboostspeed",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Flight Boost Speed",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 170
+        },
+        {
+          "Name": "flightaccel",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Flight Acceleration",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 50
+        },
+        {
+          "Name": "flightboostaccel",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Flight Boost Acceleration",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 500
+        },
+        {
+          "Name": "flightbrake",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Flight Break (Deceleration)",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 300
+        },
+        {
+          "Name": "supersonicboostconsumption",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Boost Consumption Rate",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 0
+        },
+        {
+          "Name": "supersonicboostrecovery",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Boost Recovery Rate",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 10
+        },
+        {
+          "Name": "sswildrushspeed",
+          "Description": [
+            "0 = Disabled. This Is A Tad Confusing But The Default Time For The Wild Rush Speed Is 0.1977 So If You Want To It Faster, Make The Float/Number Smaller. Also Decimals( . ) are Hard To Put In So Here's A Little Tutorial If You Want This To Be Your Value '0.052' Then Do '.' '5' '2' Then Click After The Decimal And Put The 0 So It'll Look Like '.' Then '.5' Then '.52' Then '.052' And Then The 0 For The Beginning Will Be Put In Or You Could Just Go Into The mod.ini File And Change It There. Please Don't Question Why Decimals Are Dodgey Because It's Not My Fault It's The Mod Manager's."
+          ],
+          "DisplayName": "Wild Rush Speed",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 0.112
+        },
+        {
+          "Name": "sswildrushdamage",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Wild Rush Damage",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 50
+        },
+        {
+          "Name": "ss2auraconfig",
+          "Description": [
+            ""
+          ],
+          "DisplayName": "Super Sonic 2's Aura Colour (WIP DOESN'T WORK)",
+          "Type": "SS2Aura",
+          "MinValue": null,
+          "MaxValue": null,
+          "DefaultValue": "1"
         }
       ]
     }
   ],
+  "Enums": {
+    "SS2Aura": [
+      {
+        "DisplayName": "Red",
+        "Value": "1",
+        "Description": [
+          "Changes The Colour Of Super Sonic 2's Aura To Red."
+        ]
+      },
+      {
+        "DisplayName": "Yellow",
+        "Value": "2",
+        "Description": [
+          "Changes The Colour Of Super Sonic 2's Aura To Yellow."
+        ]
+      },
+      {
+        "DisplayName": "Blue",
+        "Value": "3",
+        "Description": [
+          "Changes The Colour Of Super Sonic 2's Aura To Blue."
+        ]
+      }
+    ]
+  },
   "IniFile": "mod.ini"
 }

@@ -1721,3 +1721,1394 @@ Code "Physics Customized Boost Recovery Rate By Ring"
         RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.boost.recoveryByRing, BoostRecoveryAttack);
     }
 }
+
+
+Code "Physics Customized Flight Speed"
+//
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "Sonic"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float FlightSpeed = 0;
+//
+{
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            FlightSpeed = INI.Parse(ini["SuperSonicAndSuperSonic2Params"]["flightspeed"], FlightSpeed);
+        }
+        else
+        {
+            Console.WriteLine($"[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (FlightSpeed != 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.fly.maxSpeed, FlightSpeed);
+    }
+}
+
+
+Code "Physics Customized Flight Boost Speed"
+//
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "Sonic"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float FlightBoostSpeed = 0;
+//
+{
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            FlightBoostSpeed = INI.Parse(ini["SuperSonicAndSuperSonic2Params"]["flightboostspeed"], FlightBoostSpeed);
+        }
+        else
+        {
+            Console.WriteLine($"[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (FlightBoostSpeed != 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.fly.maxDashSpeed, FlightBoostSpeed);
+    }
+}
+
+
+Code "Physics Customized Flight Acceleration"
+//
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "Sonic"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float FlightAccel = 0;
+//
+{
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            FlightAccel = INI.Parse(ini["SuperSonicAndSuperSonic2Params"]["flightaccel"], FlightAccel);
+        }
+        else
+        {
+            Console.WriteLine($"[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (FlightAccel != 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.fly.accel, FlightAccel);
+    }
+}
+
+
+Code "Physics Customized Flight Boost Acceleration"
+//
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "Sonic"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float FlightBoostAccel = 0;
+//
+{
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            FlightBoostAccel = INI.Parse(ini["SuperSonicAndSuperSonic2Params"]["flightboostaccel"], FlightBoostAccel);
+        }
+        else
+        {
+            Console.WriteLine($"[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (FlightBoostAccel != 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.fly.dashAccel, FlightBoostAccel);
+    }
+}
+
+
+Code "Physics Customized Flight Brake (Deceleration)"
+//
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "Sonic"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float FlightBrake = 0;
+//
+{
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            FlightBrake = INI.Parse(ini["SuperSonicAndSuperSonic2Params"]["flightbrake"], FlightBrake);
+        }
+        else
+        {
+            Console.WriteLine($"[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (FlightBrake != 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.fly.brake, FlightBrake);
+    }
+}
+
+
+Code "Physics Customized Flight Boost Consumption"
+//
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "Sonic"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float FlightBoostConsumption = 0;
+//
+{
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            FlightBoostConsumption = INI.Parse(ini["SuperSonicAndSuperSonic2Params"]["supersonicboostconsumption"], FlightBoostConsumption);
+        }
+        else
+        {
+            Console.WriteLine($"[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (FlightBoostConsumption != 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.boost.consumptionRateSS, FlightBoostConsumption);
+    }
+}
+
+
+Code "Physics Customized Flight Boost Recovery"
+//
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "Sonic"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float FlightBoostRecovery = 0;
+//
+{
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            FlightBoostRecovery = INI.Parse(ini["SuperSonicAndSuperSonic2Params"]["supersonicboostrecovery"], FlightBoostRecovery);
+        }
+        else
+        {
+            Console.WriteLine($"[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (FlightBoostRecovery != 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.boost.recoveryRateSS, FlightBoostRecovery);
+    }
+}
+
+
+Code "Physics Customized Diving Verticle"
+//
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "AmyParameters"
+    #lib "KnucklesParameters"
+    #lib "TailsParameters"
+    #lib "Sonic"
+    #lib "Amy"
+    #lib "Knuckles"
+    #lib "Tails"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float DivingVert = 0;
+//
+{
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            DivingVert = INI.Parse(ini["Common"]["divingspeedvert"], DivingVert);
+        }
+        else
+        {
+            Console.WriteLine($"[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    var TailsParametersInfo = Reflection.GetDataInfo<TailsParameters.Root>("tails_common");
+    
+    if (TailsParametersInfo.pData == null)
+        return;
+
+    var AmyParametersInfo = Reflection.GetDataInfo<AmyParameters.Root>("amy_common");
+    
+    if (AmyParametersInfo.pData == null)
+        return;
+
+    var KnucklesParametersInfo = Reflection.GetDataInfo<KnucklesParameters.Root>("knuckles_common");
+    
+    if (KnucklesParametersInfo.pData == null)
+        return;
+
+    if (DivingVert >= 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.diving.normal.maxVertSpeed, DivingVert);
+        RFL_SET_PARAM(AmyParametersInfo, forwardView.modePackage.diving.normal.maxVertSpeed, DivingVert);
+        RFL_SET_PARAM(KnucklesParametersInfo, forwardView.modePackage.diving.normal.maxVertSpeed, DivingVert);
+        RFL_SET_PARAM(TailsParametersInfo, forwardView.modePackage.diving.normal.maxVertSpeed, DivingVert);
+    }
+}
+
+
+Code "Physics Customized Diving Verticle Max"
+//
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "AmyParameters"
+    #lib "KnucklesParameters"
+    #lib "TailsParameters"
+    #lib "Sonic"
+    #lib "Amy"
+    #lib "Knuckles"
+    #lib "Tails"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float DivingVertMax = 0;
+//
+{
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            DivingVertMax = INI.Parse(ini["Common"]["divingspeedmaxvert"], DivingVertMax);
+        }
+        else
+        {
+            Console.WriteLine($"[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    var TailsParametersInfo = Reflection.GetDataInfo<TailsParameters.Root>("tails_common");
+    
+    if (TailsParametersInfo.pData == null)
+        return;
+
+    var AmyParametersInfo = Reflection.GetDataInfo<AmyParameters.Root>("amy_common");
+    
+    if (AmyParametersInfo.pData == null)
+        return;
+
+    var KnucklesParametersInfo = Reflection.GetDataInfo<KnucklesParameters.Root>("knuckles_common");
+    
+    if (KnucklesParametersInfo.pData == null)
+        return;
+
+    if (DivingVertMax >= 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.diving.fast.maxVertSpeed, DivingVertMax);
+        RFL_SET_PARAM(AmyParametersInfo, forwardView.modePackage.diving.fast.maxVertSpeed, DivingVertMax);
+        RFL_SET_PARAM(KnucklesParametersInfo, forwardView.modePackage.diving.fast.maxVertSpeed, DivingVertMax);
+        RFL_SET_PARAM(TailsParametersInfo, forwardView.modePackage.diving.fast.maxVertSpeed, DivingVertMax);
+    }
+}
+
+
+Code "Physics Customized Diving Horzion Max"
+//
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "AmyParameters"
+    #lib "KnucklesParameters"
+    #lib "TailsParameters"
+    #lib "Sonic"
+    #lib "Amy"
+    #lib "Knuckles"
+    #lib "Tails"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float DivingHorizonMax = 0;
+//
+{
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            DivingHorizonMax = INI.Parse(ini["Common"]["divingspeedmaxhorizon"], DivingHorizonMax);
+        }
+        else
+        {
+            Console.WriteLine($"[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    var TailsParametersInfo = Reflection.GetDataInfo<TailsParameters.Root>("tails_common");
+    
+    if (TailsParametersInfo.pData == null)
+        return;
+
+    var AmyParametersInfo = Reflection.GetDataInfo<AmyParameters.Root>("amy_common");
+    
+    if (AmyParametersInfo.pData == null)
+        return;
+
+    var KnucklesParametersInfo = Reflection.GetDataInfo<KnucklesParameters.Root>("knuckles_common");
+    
+    if (KnucklesParametersInfo.pData == null)
+        return;
+
+    if (DivingHorizonMax >= 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.diving.fast.maxHorzSpeed, DivingHorizonMax);
+        RFL_SET_PARAM(AmyParametersInfo, forwardView.modePackage.diving.fast.maxHorzSpeed, DivingHorizonMax);
+        RFL_SET_PARAM(KnucklesParametersInfo, forwardView.modePackage.diving.fast.maxHorzSpeed, DivingHorizonMax);
+        RFL_SET_PARAM(TailsParametersInfo, forwardView.modePackage.diving.fast.maxHorzSpeed, DivingHorizonMax);
+    }
+}
+
+
+Code "Physics Customized Diving Horzion"
+//
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "AmyParameters"
+    #lib "KnucklesParameters"
+    #lib "TailsParameters"
+    #lib "Sonic"
+    #lib "Amy"
+    #lib "Knuckles"
+    #lib "Tails"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float DivingHorizon = 0;
+//
+{
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            DivingHorizon = INI.Parse(ini["Common"]["divingspeedhorizon"], DivingHorizon);
+        }
+        else
+        {
+            Console.WriteLine($"[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    var TailsParametersInfo = Reflection.GetDataInfo<TailsParameters.Root>("tails_common");
+    
+    if (TailsParametersInfo.pData == null)
+        return;
+
+    var AmyParametersInfo = Reflection.GetDataInfo<AmyParameters.Root>("amy_common");
+    
+    if (AmyParametersInfo.pData == null)
+        return;
+
+    var KnucklesParametersInfo = Reflection.GetDataInfo<KnucklesParameters.Root>("knuckles_common");
+    
+    if (KnucklesParametersInfo.pData == null)
+        return;
+
+    if (DivingHorizon >= 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.diving.normal.maxHorzSpeed, DivingHorizon);
+        RFL_SET_PARAM(AmyParametersInfo, forwardView.modePackage.diving.normal.maxHorzSpeed, DivingHorizon);
+        RFL_SET_PARAM(KnucklesParametersInfo, forwardView.modePackage.diving.normal.maxHorzSpeed, DivingHorizon);
+        RFL_SET_PARAM(TailsParametersInfo, forwardView.modePackage.diving.normal.maxHorzSpeed, DivingHorizon);
+    }
+}
+
+
+Code "Physics Customized Parry Timing"
+//
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "AmyParameters"
+    #lib "KnucklesParameters"
+    #lib "TailsParameters"
+    #lib "Sonic"
+    #lib "Amy"
+    #lib "Knuckles"
+    #lib "Tails"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float ParryTiming = 0;
+//
+{
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            ParryTiming = INI.Parse(ini["Common"]["parrytime"], ParryTiming);
+        }
+        else
+        {
+            Console.WriteLine($"[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    var TailsParametersInfo = Reflection.GetDataInfo<TailsParameters.Root>("tails_common");
+    
+    if (TailsParametersInfo.pData == null)
+        return;
+
+    var AmyParametersInfo = Reflection.GetDataInfo<AmyParameters.Root>("amy_common");
+    
+    if (AmyParametersInfo.pData == null)
+        return;
+
+    var KnucklesParametersInfo = Reflection.GetDataInfo<KnucklesParameters.Root>("knuckles_common");
+    
+    if (KnucklesParametersInfo.pData == null)
+        return;
+
+    if (ParryTiming >= 0)
+    {
+        RFL_SET_CONTEXTUAL_PLAYER_PARAM(SonicParametersInfo, modePackage.parry.maxRecieveTimes[0], ParryTiming);
+        RFL_SET_CONTEXTUAL_PLAYER_PARAM(SonicParametersInfo, modePackage.parry.maxRecieveTimes[1], ParryTiming);
+        RFL_SET_CONTEXTUAL_PLAYER_PARAM(SonicParametersInfo, modePackage.parry.maxRecieveTimes[2], ParryTiming);
+        RFL_SET_CONTEXTUAL_PLAYER_PARAM(SonicParametersInfo, modePackage.parry.maxRecieveTimes[3], ParryTiming);
+    }
+}
+
+
+Code "Physics Customized SS Crasher Damage"
+// 
+{
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "Sonic"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float SSCrasherDamage = 0;
+
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            SSCrasherDamage = INI.Parse(ini["SuperSonicAndSuperSonic2Params"]["sswildrushdamage"], SSCrasherDamage);
+        }
+        else
+        {
+            Console.WriteLine("[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (SSCrasherDamage != 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, common.commonPackage.attack.crasher.damageRateSS, SSCrasherDamage);
+    }
+}
+
+
+Code "Physics Customized Crasher Damage"
+// 
+{
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "Sonic"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float CrasherDamage = 0;
+
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            CrasherDamage = INI.Parse(ini["SonicCombatParams"]["wildrushdamage"], CrasherDamage);
+        }
+        else
+        {
+            Console.WriteLine("[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (CrasherDamage != 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, common.commonPackage.attack.crasher.damageRate, CrasherDamage);
+    }
+}
+
+
+Code "Physics Customized SS Wild Rush Speed"
+// 
+{
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "Sonic"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float SSWildRushSpeed = 0;
+
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            SSWildRushSpeed = INI.Parse(ini["SuperSonicAndSuperSonic2Params"]["sswildrushspeed"], SSWildRushSpeed);
+        }
+        else
+        {
+            Console.WriteLine("[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (SSWildRushSpeed != 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, common.crasherSet.superSonic1.zigzagBeginOneStepTime, SSWildRushSpeed);
+        RFL_SET_PARAM(SonicParametersInfo, common.crasherSet.superSonic1.zigzagEndOneStepTime, SSWildRushSpeed);
+    }
+}
+
+
+Code "Physics Customized Auto Deceleration"
+// 
+{
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "Sonic"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float AutoDecele = 0;
+
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            AutoDecele = INI.Parse(ini["SonicAccelParams"]["autodecel"], AutoDecele);
+        }
+        else
+        {
+            Console.WriteLine("[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (AutoDecele != 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.deceleAuto, AutoDecele);
+    }
+}
+
+
+Code "Physics Customized Auto Acceleration"
+// 
+{
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "Sonic"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float AutoAccele = 0;
+
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            AutoAccele = INI.Parse(ini["SonicAccelParams"]["autoaccel"], AutoAccele);
+        }
+        else
+        {
+            Console.WriteLine("[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (AutoAccele != 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.acceleAuto, AutoAccele);
+    }
+}
+
+
+Code "Physics Customized Acceleration Force"
+// 
+{
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "Sonic"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float AcceleForce = 0;
+
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            AcceleForce = INI.Parse(ini["SonicAccelParams"]["accelforce"], AcceleForce);
+        }
+        else
+        {
+            Console.WriteLine("[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (AcceleForce != 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.accele.force, AcceleForce);
+    }
+}
+
+
+Code "Physics Customized Acceleration Force 2"
+// 
+{
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "Sonic"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float AcceleForce2 = 0;
+
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            AcceleForce2 = INI.Parse(ini["SonicAccelParams"]["accelforce2"], AcceleForce2);
+        }
+        else
+        {
+            Console.WriteLine("[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (AcceleForce2 != 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.accele.force2, AcceleForce2);
+    }
+}
+
+
+Code "Physics Customized Acceleration Damp Range"
+// 
+{
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "Sonic"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float AcceleDampRange = 0;
+
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            AcceleDampRange = INI.Parse(ini["SonicAccelParams"]["acceldamp"], AcceleDampRange);
+        }
+        else
+        {
+            Console.WriteLine("[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (AcceleDampRange != 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.accele.damperRange, AcceleDampRange);
+    }
+}
+
+
+Code "Physics Customized Acceleration Jerk Min"
+// 
+{
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "Sonic"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float AcceleJerkMin = 0;
+
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            AcceleJerkMin = INI.Parse(ini["SonicAccelParams"]["acceljerkmin"], AcceleJerkMin);
+        }
+        else
+        {
+            Console.WriteLine("[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (AcceleJerkMin != 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.accele.jerkMin, AcceleJerkMin);
+    }
+}
+
+
+Code "Physics Customized Acceleration Jerk Max"
+// 
+{
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "Sonic"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float AcceleJerkMax = 0;
+
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            AcceleJerkMax = INI.Parse(ini["SonicAccelParams"]["acceljerkmax"], AcceleJerkMax);
+        }
+        else
+        {
+            Console.WriteLine("[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (AcceleJerkMax != 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.accele.jerkMax, AcceleJerkMax);
+    }
+}
+
+
+Code "Physics Customized Deceleration Force"
+// 
+{
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "Sonic"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float DeceleForce = 0;
+
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            DeceleForce = INI.Parse(ini["SonicAccelParams"]["decelforce"], DeceleForce);
+        }
+        else
+        {
+            Console.WriteLine("[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (DeceleForce != 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.decele.force, DeceleForce);
+    }
+}
+
+
+Code "Physics Customized Deceleration Force 2"
+// 
+{
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "Sonic"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float DeceleForce2 = 0;
+
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            DeceleForce2 = INI.Parse(ini["SonicAccelParams"]["decelforce2"], DeceleForce2);
+        }
+        else
+        {
+            Console.WriteLine("[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (DeceleForce2 != 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.decele.force2, DeceleForce2);
+    }
+}
+
+
+Code "Physics Customized Deceleration Damp Range"
+// 
+{
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "Sonic"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float DeceleDampRange = 0;
+
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            DeceleDampRange = INI.Parse(ini["SonicAccelParams"]["deceldamp"], DeceleDampRange);
+        }
+        else
+        {
+            Console.WriteLine("[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (DeceleDampRange != 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.decele.damperRange, DeceleDampRange);
+    }
+}
+
+
+Code "Physics Customized Deceleration Jerk Min"
+// 
+{
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "Sonic"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float DeceleJerkMin = 0;
+
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            DeceleJerkMin = INI.Parse(ini["SonicAccelParams"]["deceljerkmin"], DeceleJerkMin);
+        }
+        else
+        {
+            Console.WriteLine("[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (DeceleJerkMin != 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.decele.jerkMin, DeceleJerkMin);
+    }
+}
+
+
+Code "Physics Customized Deceleration Jerk Max"
+// 
+{
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "Sonic"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float DeceleJerkMax = 0;
+
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            DeceleJerkMax = INI.Parse(ini["SonicAccelParams"]["deceljerkmax"], DeceleJerkMax);
+        }
+        else
+        {
+            Console.WriteLine("[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (DeceleJerkMax != 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.decele.jerkMax, DeceleJerkMax);
+    }
+}
+
