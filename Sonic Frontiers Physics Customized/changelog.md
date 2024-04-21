@@ -1,6 +1,6 @@
 ## Sonic Frontiers Physics Customized V2.0
 - Added Super Sonic And Super Sonic 2's Parameters
-- Added Sonic's Acceleration And Deceleration Parmeters
+- Added Sonic's Acceleration And Deceleration Parameters
 - Added Acceleration Force
 - Added Acceleration Force 2
 - Added Acceleration Damper Range
