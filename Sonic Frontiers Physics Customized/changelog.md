@@ -1,3 +1,31 @@
+## Sonic Frontiers Physics Customized V2.0
+- Added Super Sonic And Super Sonic 2's Parameters
+- Added Sonic's Acceleration And Deceleration Parmeters
+- Added Acceleration Force
+- Added Acceleration Force 2
+- Added Acceleration Damper Range
+- Added Acceleration Jerk Minimum
+- Added Acceleration Jerk Max
+- Added Deceleration Force
+- Added Deceleration Force 2
+- Added Deceleration Damper Range
+- Added Deceleration Jerk Minimum
+- Added Deceleration Jerk Max
+- Added Auto Run Acceleration
+- Added Auto Run Deceleration
+- Added Super Flight Speed
+- Added Super Flight Boost Speed
+- Added Super Flight Acceleration
+- Added Super Flight Boost Acceleration
+- Added Super Flight Break (Deceleration)
+- Added Super Boost Consumption Rate
+- Added Super Boost Recovery Rate
+- Added Super Wild Rush Speed
+- Added Super Wild Rush Damage
+- Added Super Sonic 2 Aura Colour (Doesn't Work Yet Added It To Give You Guys A Cliff Hanger)
+
+If There Are Any Names In The Configerations That Aren't Correct Or Are Hard To Understand And You Know A Better Name Please Tell Me
+
 ## Sonic Frontiers Physics Customized V1.4
 - Added A Description To The mod.ini
 - Changed All The Configuration Group Names
