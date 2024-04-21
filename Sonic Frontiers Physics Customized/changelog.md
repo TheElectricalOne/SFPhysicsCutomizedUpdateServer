@@ -24,7 +24,7 @@
 - Added Super Wild Rush Damage
 - Added Super Sonic 2 Aura Colour (Doesn't Work Yet Added It To Give You Guys A Cliff Hanger)
 
-If There Are Any Names In The Configerations That Aren't Correct Or Are Hard To Understand And You Know A Better Name Please Tell Me
+If There Are Any Names In The Configurations That Aren't Correct Or Are Hard To Understand And You Know A Better Name Please Tell Me
 
 ## Sonic Frontiers Physics Customized V1.4
 - Added A Description To The mod.ini
