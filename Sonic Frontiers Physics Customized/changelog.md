@@ -1,3 +1,15 @@
+## Sonic Frontiers Physics Customized V3.0
+- Added Grinding Max Speed
+- Grinding Max Boost Speed
+- Grinding Min Speed
+- Grinding Acceleration
+- Grinding Deceleration
+- Other Character Cyloop Colours Integration
+- Cyloop Colours (Sonic(blue), Silver(grey), Shadow(yellow/orange))
+- SS2 Aura Colours (Red, Yellow, Blue, Purple)
+
+If There Are Any Names In The Configurations That Aren't Correct Or Are Hard To Understand And You Know A Better Name Please Tell Me
+
 ## Sonic Frontiers Physics Customized V2.0
 - Added Super Sonic And Super Sonic 2's Parameters
 - Added Sonic's Acceleration And Deceleration Parameters
