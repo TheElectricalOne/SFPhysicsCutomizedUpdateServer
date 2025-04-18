@@ -3112,3 +3112,450 @@ Code "Physics Customized Deceleration Jerk Max"
     }
 }
 
+Code "Physcics Customized Cyloop Edits" in "Effects" by "TheElectricalOne, Susero"
+//
+#include "Reflection" noemit
+#lib "Player"
+#lib "Sonic"
+#lib "Knuckles"
+#lib "Amy"
+#lib "Tails"
+#lib "SonicParameters"
+
+static int sonicCyloopType = 0;
+static bool cyloopCharacters = false;
+static bool IsConfigInitialised = false;
+//
+{
+
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            sonicCyloopType = INI.Parse(ini["Common"]["cylooptypesonic"], sonicCyloopType);
+            cyloopCharacters = INI.Parse(ini["Common"]["cyloopcharacters"], cyloopCharacters);
+        }
+        else
+        {
+            Console.WriteLine($"[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (cyloopCharacters)
+    {
+        if (Player.GetPlayerType() == Player.PlayerType.Sonic) 
+        {
+            if (sonicCyloopType == 0)
+            {
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.startColor.R, 0.0f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.startColor.G, 0.55f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.startColor.B, 0.75f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.endColor.R, 0.0f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.endColor.G, 0.15f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.endColor.B, 0.95f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color0.R, 0.0f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color0.G, 0.2f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color0.B, 1.0f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color1.R, 0.0f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color1.G, 0.0f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color1.B, 1.0f);
+            }
+            
+            if (sonicCyloopType == 1)
+            {
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.startColor.R, 0.9f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.startColor.G, 0.4f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.startColor.B, 0.0f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.endColor.R, 0.9f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.endColor.G, 0.7f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.endColor.B, 0.0f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color0.R, 1.0f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color0.G, 0.1f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color0.B, 0.0f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color1.R, 1.0f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color1.G, 0.0f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color1.B, 0.0f);
+            }
+
+            if (sonicCyloopType == 2)
+            {
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.startColor.R, 0.4f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.startColor.G, 0.9f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.startColor.B, 0.9f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.endColor.R, 0.4f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.endColor.G, 1.0f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.endColor.B, 1.0f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color0.R, 0.4f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color0.G, 0.9f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color0.B, 0.9f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color1.R, 0.4f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color1.G, 1.0f);
+                RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color1.B, 1.0f);
+            }
+        }
+
+        if (Player.GetPlayerType() == Player.PlayerType.Tails) 
+        {
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.startColor.R, 0.9f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.startColor.G, 0.5f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.startColor.B, 0.0f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.endColor.R, 0.9f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.endColor.G, 0.9f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.endColor.B, 0.0f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color0.R, 1.0f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color0.G, 0.2f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color0.B, 0.0f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color1.R, 1.0f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color1.G, 0.0f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color1.B, 0.0f);
+        }
+
+        if (Player.GetPlayerType() == Player.PlayerType.Knuckles) 
+        {
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.startColor.R, 0.8f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.startColor.G, 0.2f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.startColor.B, 0.2f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.endColor.R, 0.9f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.endColor.G, 0.0f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.endColor.B, 0.0f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color0.R, 1.0f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color0.G, 0.0f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color0.B, 0.0f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color1.R, 1.0f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color1.G, 0.0f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color1.B, 0.0f);
+        }
+
+        if (Player.GetPlayerType() == Player.PlayerType.Amy) 
+        {
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.startColor.R, 0.5f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.startColor.G, 0.1f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.startColor.B, 0.5f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.endColor.R, 0.9f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.endColor.G, 0.1f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.endColor.B, 0.9f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color0.R, 1.0f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color0.G, 0.3f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color0.B, 0.5f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color1.R, 1.0f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color1.G, 0.3f);
+            RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color1.B, 0.5f);
+        }
+    }
+}
+
+Code "Physics Customized SS2 Outline Colour"
+// 
+{
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "Sonic"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static int SS2OutlineColour = 0;
+
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            SS2OutlineColour = INI.Parse(ini["SuperSonicAndSuperSonic2Params"]["ss2auraconfig"], SS2OutlineColour);
+        }
+        else
+        {
+            Console.WriteLine("[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (SS2OutlineColour == 1)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, common.supersonic.auraColor2.R, 0.7f);
+        RFL_SET_PARAM(SonicParametersInfo, common.supersonic.auraColor2.G, 0.03f);
+        RFL_SET_PARAM(SonicParametersInfo, common.supersonic.auraColor2.B, 0.0f);
+    }
+
+    if (SS2OutlineColour == 2)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, common.supersonic.auraColor2.R, 0.7f);
+        RFL_SET_PARAM(SonicParametersInfo, common.supersonic.auraColor2.G, 0.7f);
+        RFL_SET_PARAM(SonicParametersInfo, common.supersonic.auraColor2.B, 0.0f);
+    }
+
+    if (SS2OutlineColour == 3)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, common.supersonic.auraColor2.R, 0.0f);
+        RFL_SET_PARAM(SonicParametersInfo, common.supersonic.auraColor2.G, 0.2f);
+        RFL_SET_PARAM(SonicParametersInfo, common.supersonic.auraColor2.B, 0.8f);
+    }
+
+    if (SS2OutlineColour == 4)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, common.supersonic.auraColor2.R, 0.8f);
+        RFL_SET_PARAM(SonicParametersInfo, common.supersonic.auraColor2.G, 0.0f);
+        RFL_SET_PARAM(SonicParametersInfo, common.supersonic.auraColor2.B, 0.8f);
+    }
+}
+
+
+Code "Physics Customized Min Grind Speed Sonic"
+//
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "Sonic"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float MinGrindSpeed = 0;
+//
+{
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            MinGrindSpeed = INI.Parse(ini["SonicSpeedParams"]["grindspeedmin"], MinGrindSpeed);
+        }
+        else
+        {
+            Console.WriteLine($"[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (MinGrindSpeed >= 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.grind.limitSpeedMin, MinGrindSpeed);
+    }
+}
+
+
+Code "Physics Customized Max Grind Speed Sonic"
+//
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "Sonic"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float MaxGrindSpeed = 0;
+//
+{
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            MaxGrindSpeed = INI.Parse(ini["SonicSpeedParams"]["grindspeedmax"], MaxGrindSpeed);
+        }
+        else
+        {
+            Console.WriteLine($"[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (MaxGrindSpeed >= 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.grind.maxSpeed, MaxGrindSpeed);
+    }
+}
+
+
+Code "Physics Customized Max Grind Boost Speed Sonic"
+//
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "Sonic"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float MaxGrindBoostSpeed = 0;
+//
+{
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            MaxGrindBoostSpeed = INI.Parse(ini["SonicSpeedParams"]["boostgrindspeedmax"], MaxGrindBoostSpeed);
+        }
+        else
+        {
+            Console.WriteLine($"[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (MaxGrindBoostSpeed >= 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.grind.maxBoostSpeed, MaxGrindBoostSpeed);
+    }
+}
+
+
+Code "Physics Customized Acceleration Grind Sonic"
+//
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "Sonic"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float AcceleGrind = 0;
+//
+{
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            AcceleGrind = INI.Parse(ini["SonicSpeedParams"]["grindaccelforce"], AcceleGrind);
+        }
+        else
+        {
+            Console.WriteLine($"[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (AcceleGrind >= 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.grind.acceleForce, AcceleGrind);
+    }
+}
+
+
+Code "Physics Customized Decel Grind Sonic"
+//
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "Sonic"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float DecelGrind = 0;
+//
+{
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            DecelGrind = INI.Parse(ini["SonicSpeedParams"]["grinddecelforce"], DecelGrind);
+        }
+        else
+        {
+            Console.WriteLine($"[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (DecelGrind >= 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.grind.deceleForce, DecelGrind);
+    }
+}

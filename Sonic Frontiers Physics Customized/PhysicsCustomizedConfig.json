@@ -16,6 +16,28 @@
           "DefaultValue": 1.6
         },
         {
+          "Name": "cyloopcharacters",
+          "Description": [
+            "Enables The Cyloop Colours For Other Characters Code Made By TheElectrical01 And Susero"
+          ],
+          "DisplayName": "Cyloop Characters",
+          "Type": "bool",
+          "MinValue": null,
+          "MaxValue": null,
+          "DefaultValue": "false"
+        },
+        {
+          "Name": "cylooptypesonic",
+          "Description": [
+            "Changes The Cyloop Colours For Sonic (THIS WILL NOT WORK IF THE CYLOOP CHARACTERS OPTION IS FALSE)"
+          ],
+          "DisplayName": "Cyloop Type For Sonic",
+          "Type": "SonicCyloopEnums",
+          "MinValue": null,
+          "MaxValue": null,
+          "DefaultValue": "0"
+        },
+        {
           "Name": "divingspeedvert",
           "Description": [
             "0 = Disabled."
@@ -306,6 +328,61 @@
           "MinValue": 0,
           "MaxValue": 1000,
           "DefaultValue": 60
+        },
+        {
+          "Name": "grindspeedmin",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Minimum Grind Speed",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 15
+        },
+        {
+          "Name": "grindspeedmax",
+          "Description": [
+            "0 = Disabled. Make Sure Max Speed Limit Is Higher Or The Same."
+          ],
+          "DisplayName": "Max Grind Speed",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 30
+        },
+        {
+          "Name": "boostgrindspeedmax",
+          "Description": [
+            "0 = Disabled. Make Sure Max Speed Limit Is Higher Or The Same."
+          ],
+          "DisplayName": "Max Boost Grind Speed",
+          "Type": "float",
+          "MinValue": 0,
+          "MaxValue": 1000,
+          "DefaultValue": 60
+        },
+        {
+          "Name": "grindaccelforce",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Grind Acceleration Force",
+          "Type": "float",
+          "MinValue": -1000,
+          "MaxValue": 1000,
+          "DefaultValue": 5
+        },
+        {
+          "Name": "grinddecelforce",
+          "Description": [
+            "0 = Disabled."
+          ],
+          "DisplayName": "Grind Deceleration Force",
+          "Type": "float",
+          "MinValue": -1000,
+          "MaxValue": 1000,
+          "DefaultValue": 30
         }
       ]
     },
@@ -320,8 +397,8 @@
           ],
           "DisplayName": "Max Gravity Acceleration",
           "Type": "float",
-          "MinValue": -1000,
-          "MaxValue": 1000,
+          "MinValue": -4,
+          "MaxValue": 4,
           "DefaultValue": 10
         },
         {
@@ -342,8 +419,8 @@
           ],
           "DisplayName": "Hill Sensitivity",
           "Type": "float",
-          "MinValue": -4,
-          "MaxValue": 4,
+          "MinValue": -1000,
+          "MaxValue": 1000,
           "DefaultValue": -4
         }
       ]
@@ -747,9 +824,9 @@
         {
           "Name": "ss2auraconfig",
           "Description": [
-            ""
+            "Changes The Colour Of Super Sonic 2's Outline"
           ],
-          "DisplayName": "Super Sonic 2's Aura Colour (WIP DOESN'T WORK)",
+          "DisplayName": "Super Sonic 2's Outline Colour",
           "Type": "SS2Aura",
           "MinValue": null,
           "MaxValue": null,
@@ -764,21 +841,51 @@
         "DisplayName": "Red",
         "Value": "1",
         "Description": [
-          "Changes The Colour Of Super Sonic 2's Aura To Red."
+          "Changes The Colour Of Super Sonic 2's Outline To Red."
         ]
       },
       {
         "DisplayName": "Yellow",
         "Value": "2",
         "Description": [
-          "Changes The Colour Of Super Sonic 2's Aura To Yellow."
+          "Changes The Colour Of Super Sonic 2's Outline To Yellow."
         ]
       },
       {
         "DisplayName": "Blue",
         "Value": "3",
         "Description": [
-          "Changes The Colour Of Super Sonic 2's Aura To Blue."
+          "Changes The Colour Of Super Sonic 2's Outline To Blue."
+        ]
+      },
+      {
+        "DisplayName": "Purple",
+        "Value": "4",
+        "Description": [
+          "Changes The Colour Of Super Sonic 2's Outline To Purple."
+        ]
+      }
+    ],
+    "SonicCyloopEnums": [
+      {
+        "DisplayName": "Sonic",
+        "Value": "0",
+        "Description": [
+          "Default Colour Of Sonic's Cyloop."
+        ]
+      },
+      {
+        "DisplayName": "Shadow",
+        "Value": "1",
+        "Description": [
+          "Changes The Colour Of The Cyloop To A Shade Of Yellow Similar To Tails' Cyloop."
+        ]
+      },
+      {
+        "DisplayName": "Silver",
+        "Value": "2",
+        "Description": [
+          "Changes The Colour Of The Cyloop To A Shade Grey."
         ]
       }
     ]
