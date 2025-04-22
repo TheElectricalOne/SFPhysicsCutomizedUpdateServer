@@ -29,7 +29,7 @@
         {
           "Name": "cylooptypesonic",
           "Description": [
-            "Changes The Cyloop Colours For Sonic (THIS WILL NOT WORK IF THE CYLOOP CHARACTERS OPTION IS FALSE)"
+            "Changes The Cyloop Colours For Sonic."
           ],
           "DisplayName": "Cyloop Type For Sonic",
           "Type": "SonicCyloopEnums",

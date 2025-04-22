@@ -445,6 +445,53 @@ Code "Physics Customized Initial Run Sonic"
 }
 
 
+Code "Physics Customized Initial Boost Sonic"
+//
+    #include "Reflection" noemit
+
+    #lib "SonicParameters"
+    #lib "Sonic"
+    #lib "Player"
+    #lib "Reflection"
+    #lib "HMM"
+    #lib "INI"
+
+    static bool IsConfigInitialised = false;
+    static float BoostSpeed = 0;
+//
+{
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            BoostSpeed = INI.Parse(ini["SonicSpeedParams"]["boostspeedinitial"], BoostSpeed);
+        }
+        else
+        {
+            Console.WriteLine($"[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (BoostSpeed >= 0)
+    {
+        RFL_SET_PARAM(SonicParametersInfo, forwardView.modePackage.speed.boost.initial, BoostSpeed);
+    }
+}
+
+
 Code "Physics Customized Initial Boost 2 Sonic"
 //
     #include "Reflection" noemit
@@ -3112,18 +3159,15 @@ Code "Physics Customized Deceleration Jerk Max"
     }
 }
 
-Code "Physcics Customized Cyloop Edits" in "Effects" by "TheElectricalOne, Susero"
+
+Code "Physcics Customized Cyloop Edits Sonic" in "Effects" by "TheElectricalOne, Susero"
 //
 #include "Reflection" noemit
 #lib "Player"
 #lib "Sonic"
-#lib "Knuckles"
-#lib "Amy"
-#lib "Tails"
 #lib "SonicParameters"
 
 static int sonicCyloopType = 0;
-static bool cyloopCharacters = false;
 static bool IsConfigInitialised = false;
 //
 {
@@ -3138,7 +3182,6 @@ static bool IsConfigInitialised = false;
             var ini = INI.Read(modConfigIniPath);
 
             sonicCyloopType = INI.Parse(ini["Common"]["cylooptypesonic"], sonicCyloopType);
-            cyloopCharacters = INI.Parse(ini["Common"]["cyloopcharacters"], cyloopCharacters);
         }
         else
         {
@@ -3153,9 +3196,7 @@ static bool IsConfigInitialised = false;
     if (SonicParametersInfo.pData == null)
         return;
 
-    if (cyloopCharacters)
-    {
-        if (Player.GetPlayerType() == Player.PlayerType.Sonic) 
+    if (Player.GetPlayerType() == Player.PlayerType.Sonic) 
         {
             if (sonicCyloopType == 0)
             {
@@ -3205,7 +3246,49 @@ static bool IsConfigInitialised = false;
                 RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_transparentLines[0].m_color1.B, 1.0f);
             }
         }
+}
 
+Code "Physcics Customized Cyloop Edits" in "Effects" by "TheElectricalOne, Susero"
+//
+#include "Reflection" noemit
+#lib "Player"
+#lib "Sonic"
+#lib "Knuckles"
+#lib "Amy"
+#lib "Tails"
+#lib "SonicParameters"
+
+static bool cyloopCharacters = false;
+static bool IsConfigInitialised = false;
+//
+{
+
+    if (!IsConfigInitialised)
+    {
+        var mods = HMM.GetModByID("2938D1B0");
+        
+        if (mods != null)
+        {
+            string modConfigIniPath = System.IO.Path.Combine(mods.Path, "mod.ini");
+            var ini = INI.Read(modConfigIniPath);
+
+            cyloopCharacters = INI.Parse(ini["Common"]["cyloopcharacters"], cyloopCharacters);
+        }
+        else
+        {
+            Console.WriteLine($"[Physics Customized] Failed to locate mod directory.");
+            return;
+        }
+
+        IsConfigInitialised = true;
+    }
+    var SonicParametersInfo = Reflection.GetDataInfo<SonicParameters.Root>("player_common");
+    
+    if (SonicParametersInfo.pData == null)
+        return;
+
+    if (cyloopCharacters)
+    {
         if (Player.GetPlayerType() == Player.PlayerType.Tails) 
         {
             RFL_SET_PARAM(SonicParametersInfo, common.cyloop.locus.m_crossline.startColor.R, 0.9f);
