@@ -1,3 +1,9 @@
+## Sonic Frontiers Physics Customized V3.1
+- Fixed The Crashing Issue When Cyloop Characters Was Off
+- Fixed The Issue Of Initial Boost Speeds Not Setting
+
+If There Are Any Names In The Configurations That Aren't Correct Or Are Hard To Understand And You Know A Better Name Please Tell Me
+
 ## Sonic Frontiers Physics Customized V3.0
 - Added Grinding Max Speed
 - Grinding Max Boost Speed
